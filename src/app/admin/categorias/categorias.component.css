@@ -1,0 +1,163 @@
+html{
+  height: auto;
+}
+body{
+  background: #8360c3; 
+  background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  
+  background: linear-gradient(to right, #2ebf91, #8360c3); 
+  height: 94vh;
+}
+form{
+  align-items: center;
+  text-align: center;
+}
+input{
+  width: 100%;
+}
+table {
+    width: 100%;
+}
+h2{
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.jumbotron {
+  padding-top:1% ;
+  padding-bottom: 2% ;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+mat-card-title{
+  font-size: 100px;
+  padding-top:0 ;
+}
+
+.mat-form-field,
+.btn-success{
+  width: 80%;
+}
+
+.titulo_add
+{
+  text-align: center;
+  align-items: center;
+}
+
+.col-sm-4{
+  padding:10px;
+  background-color: white;
+}
+
+.btn_nuevo{
+  margin-left: 50px;
+  margin-right: 10px;
+
+  width: 5%; 
+  margin-right: 2%;
+}
+
+.busq{
+  width: 100%;
+}
+
+@media only screen and (max-width: 360px) {
+
+  html{
+    margin-top:14%;
+    background-color: #8360c3;
+  }
+  body{
+    height: 100vh;
+  }
+
+  .container{
+    margin-top:15%;
+  }
+  .jumbotron{
+    margin-bottom: 5%;
+  }
+  .btn_nuevo{
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 3%;
+  }
+  
+  .col-sm-8{
+    margin-bottom: 5%;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+ 
+}
+
+@media only screen and (max-width: 740px) {
+  html{
+    height: 800px;
+  }
+  body{
+    height: 94vh;
+  }
+
+  .container{
+    background: #8360c3; 
+    background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  
+    background: linear-gradient(to right, #2ebf91, #8360c3); 
+
+    margin-top:8%;
+  }
+
+  .jumbotron{
+    padding-bottom: 2%;
+    height: 780px;
+  }
+  .btn_nuevo{
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 3%;
+  }
+  .col-sm-4{
+    margin-left: 4%;
+    margin-right: 4% ;
+  }
+  .col-sm-8{
+    margin-bottom: 5%;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+ 
+}
+
+@media only screen and (max-width: 1094px) {
+  html{
+    height: auto;
+  }
+  body{
+    height: auto;
+  }
+
+  .container{
+    background: #8360c3; 
+    background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  
+    background: linear-gradient(to right, #2ebf91, #8360c3); 
+  }
+
+  .jumbotron{
+    margin-top: 3%;
+    padding-bottom: 2%;
+  }
+  .btn_nuevo{
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 3%;
+  }
+  .mat-form-field{
+  width: 100%;
+}
+ 
+ 
+}

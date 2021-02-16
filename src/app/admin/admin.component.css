@@ -1,0 +1,33 @@
+html, body{
+    margin-bottom: 3%;
+    height: 0;
+}
+
+
+@media only screen and (max-width: 510px) {
+    html{
+        margin-bottom: 8%;
+    }
+    body{
+     background-color: #8360c3;
+    }
+  
+    .jumbotron{
+      margin-bottom: 5%;
+      padding-bottom: 5%;
+    }
+    .btn_nuevo{
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 3%;
+    }
+    
+    .col-sm-8{
+      margin-bottom: 5%;
+    }
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+   
+  }
