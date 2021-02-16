@@ -27,7 +27,17 @@ export class UsuariosComponent implements OnInit {
             
 
   ngOnInit(): void {
-    this.mostrar();
+    this.usuarioService.mostrar().subscribe(
+      (datos:any)=>{
+        usuario = datos;
+        console.log(usuario);
+        this.dataSource = new MatTableDataSource(usuario);
+        this.dataSource.paginator = this.paginator;
+      }, 
+      (error)=>{
+        console.log(error)
+      }
+    );
   }
 
   mostrar(){
