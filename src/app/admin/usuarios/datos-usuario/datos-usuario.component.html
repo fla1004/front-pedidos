@@ -1,0 +1,29 @@
+<h2>Datos Usuario</h2>
+
+<div class="card">
+    <img src='./../../../../assets/img/img_avatar3.png' alt="img_usuario">
+
+    <div class="container">
+
+        <div class="rol">
+            <label >
+                <strong>
+                    {{id_usuario.rol}}
+                </strong>
+            </label>
+        </div>
+        <br>
+        <div class="nom">
+            Nombre: {{id_usuario.nombre}} {{id_usuario.apellidos}}  
+            
+        </div>
+
+        <div class="nom">
+            Correo: {{id_usuario.correo}}
+        </div>    
+        <br>       
+    </div>
+
+    <br>
+    <a (click)="cambiar_contra()">Cambiar contraseña</a>
+</div>

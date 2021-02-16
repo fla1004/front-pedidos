@@ -1,0 +1,40 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding:20px;
+  }
+  
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  margin-top: 50%;
+  padding-top: 15%;
+  padding: 0;
+  width: 100%;
+  margin: 0;
+  margin-right: 0;
+}
+img{
+  width: 80%;
+  padding-left: 25%;
+  margin-bottom: 10%;
+}
+
+a{
+  margin-left: 30%;
+}
+
+.rol
+{
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+}
+.nom{
+  font-style: normal;
+  margin-top: 10px;
+  text-align: center;
+  
+}

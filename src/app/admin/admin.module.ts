@@ -18,11 +18,14 @@ import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ClientesComponent } from './clientes/clientes.component';
 import { CrearModificarClienteComponent } from './clientes/crear-modificar-cliente/crear-modificar-cliente.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { DatosUsuarioComponent } from './usuarios/datos-usuario/datos-usuario.component';
+import { CambiarPasswordComponent } from './usuarios/cambiar-password/cambiar-password.component';
 @NgModule({
   declarations: [
     AdminComponent, 
     CategoriasComponent, 
-    ClientesComponent, CrearModificarClienteComponent,
+    ClientesComponent, CrearModificarClienteComponent, UsuariosComponent, DatosUsuarioComponent, CambiarPasswordComponent,
 
   ],
   imports: [
