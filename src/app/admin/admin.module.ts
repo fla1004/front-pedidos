@@ -16,10 +16,13 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ClientesComponent } from './clientes/clientes.component';
+import { CrearModificarClienteComponent } from './clientes/crear-modificar-cliente/crear-modificar-cliente.component';
 @NgModule({
   declarations: [
     AdminComponent, 
-    CategoriasComponent,
+    CategoriasComponent, 
+    ClientesComponent, CrearModificarClienteComponent,
 
   ],
   imports: [

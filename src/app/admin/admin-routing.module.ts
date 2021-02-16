@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { ClientesComponent } from './clientes/clientes.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,10 @@ const routes: Routes = [
         {
           path:'categoria',
           component: CategoriasComponent,
+        },
+        {
+          path:'clientes',
+          component: ClientesComponent,
         },
       ]
     }

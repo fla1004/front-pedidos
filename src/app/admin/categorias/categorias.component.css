@@ -21,6 +21,10 @@ h2{
   padding-bottom: 0;
   margin-bottom: 0;
 }
+.container{
+  margin-top: 0;
+  padding-top: 0;
+}
 .jumbotron {
   padding-top:1% ;
   padding-bottom: 2% ;
@@ -64,7 +68,7 @@ mat-card-title{
 @media only screen and (max-width: 360px) {
 
   html{
-    margin-top:14%;
+    margin-top:0%;
     background-color: #8360c3;
   }
   body{
@@ -75,7 +79,7 @@ mat-card-title{
     margin-top:15%;
   }
   .jumbotron{
-    margin-bottom: 5%;
+    margin-bottom: 10%;
   }
   .btn_nuevo{
     width: 100%;

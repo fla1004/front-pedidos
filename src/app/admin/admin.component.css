@@ -1,17 +1,19 @@
-html, body{
-    margin-bottom: 3%;
-    height: 0;
+html,body{
+  height: 0;
+}
+nav{
+  margin: 0;
 }
 
-
-@media only screen and (max-width: 510px) {
-    html{
-        margin-bottom: 8%;
-    }
+@media only screen and (max-width: 360px) {
+   
     body{
      background-color: #8360c3;
     }
-  
+    nav{
+      margin: 0;
+    }
+   
     .jumbotron{
       margin-bottom: 5%;
       padding-bottom: 5%;
