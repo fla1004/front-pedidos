@@ -19,11 +19,11 @@
     <body>
         <div class="container">
             <div class="jumbotron">
-               
-                <button mat-fab color="primary" (click)="nuevo()">
-                    <mat-icon>add</mat-icon>
+
+                <button mat-raised-button class="btn btn-success btn_nuevo" (click)="nuevo()">
+                    <i class="fas fa-plus"></i>
                 </button>
-  
+               
                 <mat-form-field>
                     <mat-label>Filter</mat-label>
                     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>

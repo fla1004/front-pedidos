@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../admin/usuarios/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -12,16 +13,30 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   hide = true;
+  public id_usuario: any;
 
   profileForm = new FormGroup({
     correo : new FormControl('', [Validators.email, Validators.required] ),
     password : new FormControl('', [Validators.required]), 
   });
 
-  constructor( private loginService: LoginService,
-               private router: Router ) { }
+  constructor( private usuarioService: UsuarioService,
+               private loginService: LoginService,
+               private router: Router ) {
+                 this.id_usuario = this.usuarioService.getIdentidad();
+                }
 
   ngOnInit(): void {
+    const tok = localStorage.getItem("token");
+
+    if(tok && this.id_usuario)
+    {
+      this.router.navigate(["admin"]);
+    }
+    else
+    {
+      this.router.navigate(["login"]);
+    }
   }
   
   ingresar(){   

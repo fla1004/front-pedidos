@@ -11,12 +11,17 @@ table{
 }
 .mat-form-field {
     font-size: 14px;
-    width: 90%;
-    padding-left: 2%;
+    width: 80%;
     padding-bottom: 2%;
 }
 .jumbotron{
     margin-top: 1.2%;
+}
+.btn_nuevo{
+    margin-left: 50px;
+    margin-right: 10px;
+  
+    width: 5%; margin-right: 2%;
 }
 /*
 .mat-column-Nombre,

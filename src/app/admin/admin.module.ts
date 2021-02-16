@@ -22,11 +22,12 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { DatosUsuarioComponent } from './usuarios/datos-usuario/datos-usuario.component';
 import { CambiarPasswordComponent } from './usuarios/cambiar-password/cambiar-password.component';
 import { CreateUsuarioDialogComponent } from './usuarios/create-usuario-dialog/create-usuario-dialog.component';
+import { ProductosComponent } from './productos/productos.component';
 @NgModule({
   declarations: [
     AdminComponent, 
     CategoriasComponent, 
-    ClientesComponent, CrearModificarClienteComponent, UsuariosComponent, DatosUsuarioComponent, CambiarPasswordComponent, CreateUsuarioDialogComponent,
+    ClientesComponent, CrearModificarClienteComponent, UsuariosComponent, DatosUsuarioComponent, CambiarPasswordComponent, CreateUsuarioDialogComponent, ProductosComponent,
 
   ],
   imports: [
