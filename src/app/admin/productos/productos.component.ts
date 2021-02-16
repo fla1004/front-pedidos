@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { CreateProdutoDialogComponent } from './create-produto-dialog/create-produto-dialog.component';
+import { ModificarProductoDialogComponent } from './modificar-producto-dialog/modificar-producto-dialog.component';
 import { ProductoService } from './producto.service';
 import { Productos } from './productos';
 
@@ -41,10 +42,9 @@ export class ProductosComponent implements OnInit {
   mostrar(){
     this.productoService.mostrar('').subscribe(
       (datos:any) => {
-        productos= datos;
+        productos = datos;
         this.dataSource = new MatTableDataSource(productos);
         this.dataSource.paginator = this.paginator;
-        console.log(productos);
       },
       (error)=>{
         console.log(error);
@@ -65,7 +65,7 @@ export class ProductosComponent implements OnInit {
         width: '880px',
       });
     }else{
-      this.dialog.open(CreateProdutoDialogComponent,{
+      this.dialog.open(ModificarProductoDialogComponent,{
         width: '880px',
         data:datos,
       });

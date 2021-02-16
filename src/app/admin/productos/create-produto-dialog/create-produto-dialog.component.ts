@@ -2,10 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Categoria } from '../../categorias/categoria';
+import { environment } from 'src/environments/environment';
 import { ProductoService } from '../producto.service';
-
-let categorias: Categoria[] = [];
 
 interface HtmlInputEvent extends Event{
   target: HTMLInputElement & EventTarget;
@@ -23,7 +21,9 @@ export class CreateProdutoDialogComponent implements OnInit {
 
   id: string | undefined;
   estado: boolean = false;
+
   public categorias;
+  public urlBase;
 
   productForm = new FormGroup({
     nombre: new FormControl('',[Validators.required]),
@@ -37,23 +37,9 @@ export class CreateProdutoDialogComponent implements OnInit {
 
   
   constructor( private router: Router,
-    private productoService: ProductoService,
-    @Inject(MAT_DIALOG_DATA) public data:any)
+    private productoService: ProductoService)
       {
-        if(data!=null)
-        {
-          this.productForm = new FormGroup({
-            nombre: new FormControl(data.nombre, [Validators.required]),
-            precio_compra: new FormControl(data.precio_compra, [Validators.required]),
-            precio_venta: new FormControl(data.precio_venta, [Validators.required]),
-            stock: new FormControl(data.stock),
-            descripcion: new FormControl(data.descripcion),
-            imagen: new FormControl(data.imagen),
-            idCategoria: new FormControl(data.idCategoria),
-          });
-          this.id = data._id;
-          this.estado = true;
-        }
+        this.urlBase = environment.servidor;
       }
 
   ngOnInit(): void {
@@ -63,8 +49,8 @@ export class CreateProdutoDialogComponent implements OnInit {
   get_categoria(){
      this.productoService.mostrar_categoria().subscribe(
        (res:any) =>{
-         categorias = res;
-          console.log(categorias);
+        this.categorias = res.Categoria;
+
        }
      )
   }
@@ -79,24 +65,24 @@ export class CreateProdutoDialogComponent implements OnInit {
     }
   }
 
-  guardarProducto() {
-    
+  guardarProducto(productForm) {
+   
     this.productoService.guardar({
-      nombre: this.productForm.value.nombre,
+     nombre: this.productForm.value.nombre,
       precio_compra: this.productForm.value.precio_compra,
       precio_venta: this.productForm.value.precio_venta,
       stock: this.productForm.value.stock,
       descripcion: this.productForm.value.descripcion,
       imagen: this.file,
       idCategoria: this.productForm.value.idCategoria,
-
     }).subscribe(
-      (res) => {
-          this.imgSelect = '../../../assets/img/descarga.png';
+      (res) => { 
+        console.log("Se registro el producto",res);
+          this.imgSelect = '../../../assets/img/images.png';
       },
       (error) => {
           console.log(JSON.stringify(error));
       }
-    );  
-}
+    );
+  }
 }

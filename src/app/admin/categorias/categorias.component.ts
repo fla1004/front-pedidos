@@ -50,7 +50,7 @@ export class CategoriasComponent implements OnInit {
   mostrar(){
     this.categoriatoService.mostrar_prod().subscribe(
       (datos:any) => {
-        categoria = datos;
+        categoria = datos.Categoria;
         this.dataSource = new MatTableDataSource(categoria);
         this.dataSource.paginator = this.paginator;
         console.log(categoria);

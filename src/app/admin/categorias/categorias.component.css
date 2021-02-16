@@ -76,10 +76,10 @@ mat-card-title{
   }
 
   .container{
-    margin-top:15%;
+    margin-top:5%;
   }
   .jumbotron{
-    margin-bottom: 10%;
+    margin-bottom: 5%;
   }
   .btn_nuevo{
     width: 100%;
@@ -160,8 +160,6 @@ mat-card-title{
     margin-bottom: 3%;
   }
   .mat-form-field{
-  width: 100%;
-}
- 
- 
+    width: 100%;
+  }
 }
