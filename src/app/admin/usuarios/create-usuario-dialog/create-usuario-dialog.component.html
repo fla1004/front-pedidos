@@ -1,0 +1,72 @@
+<h1 mat-dialog-title style="text-align: center;">
+    {{(estado)?'Modificar Usuario':'Nuevo Usuario'}}
+</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="usuarioForm" style="font-size: medium;" >
+
+            <mat-form-field class="form-group">
+                <mat-label>Nombre:</mat-label>
+                <input matInput type="text" formControlName="nombre">
+            </mat-form-field><br>
+
+            <mat-form-field class="form-group">
+                <mat-label >Apellidos:</mat-label>
+                <input matInput type="text" formControlName="apellidos">
+            </mat-form-field>
+                    
+            <mat-form-field class="form-group">
+                <mat-label>Correo:</mat-label>
+                <input matInput type="email" formControlName="correo">
+            </mat-form-field> <br>
+
+            <mat-form-field class="form-group">
+                <mat-label>Password:</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Rol</mat-label>
+                <mat-select formControlName="rol">
+                  <mat-option *ngFor="let rol of roles" [value]="rol.value">
+                    {{rol.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Estado</mat-label>
+                <mat-select formControlName="estado">
+                  <mat-option *ngFor="let est of estados" [value]="est.value">
+                    {{est.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions style="padding-left: 25px; justify-content: center;">
+    <button button mat-flat-button 
+        color="warn" mat-dialog-close mat-button mat-dialog-close>
+        Cerrar
+    </button>
+
+    <button 
+        mat-flat-button 
+        color="primary"
+        [mat-dialog-close]="usuarioForm.value" 
+        (click)="guardar()"
+        *ngIf = "!estado" >
+        
+        Guardar 
+    </button>
+    
+    <button 
+        mat-raised-button 
+        color="primary"
+        [disabled]="!usuarioForm.valid"
+        [mat-dialog-close]="usuarioForm.value" 
+        (click)="modificar()"
+        *ngIf = "estado">
+        Modificar
+    </button>
+</div>
