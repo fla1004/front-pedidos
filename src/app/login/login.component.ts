@@ -27,16 +27,7 @@ export class LoginComponent implements OnInit {
                 }
 
   ngOnInit(): void {
-    const tok = localStorage.getItem("token");
-
-    if(tok && this.id_usuario)
-    {
-      this.router.navigate(["admin"]);
-    }
-    else
-    {
-      this.router.navigate(["login"]);
-    }
+  
   }
   
   ingresar(){   

@@ -19,7 +19,7 @@ let productos:Productos[] = [];
 })
 export class ProductosComponent implements OnInit {
 
-  displayedColumns: string[] = ['nombre','precio_compra','precio_venta','stock','imagen','descripcion', 'editar', 'eliminar'];
+  displayedColumns: string[] = ['nombre','precio_compra','precio_venta','stock','imagen','descripcion','editar', 'eliminar'];
   dataSource = new MatTableDataSource(productos);
   
   @ViewChild(MatPaginator)

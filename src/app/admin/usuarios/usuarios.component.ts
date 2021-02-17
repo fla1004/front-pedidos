@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/login/usuario';
 import Swal from 'sweetalert2';
 import { CreateUsuarioDialogComponent } from './create-usuario-dialog/create-usuario-dialog.component';
@@ -16,8 +17,14 @@ let usuario: Usuario[] = [];
 })
 export class UsuariosComponent implements OnInit {
 
+  public identidad;
+
   constructor(private usuarioService: UsuarioService,
-              public dialog : MatDialog) { }
+              public dialog : MatDialog,
+              private router: Router) 
+              {
+                  this.identidad = usuarioService.getIdentidad();
+              }
 
     displayedColumns: string[] = ['Nombre', 'Correo', 'Rol', 'Estado', 'Editar', 'Eliminar'];
     dataSource = new MatTableDataSource(usuario);
@@ -27,17 +34,14 @@ export class UsuariosComponent implements OnInit {
             
 
   ngOnInit(): void {
-    this.usuarioService.mostrar().subscribe(
-      (datos:any)=>{
-        usuario = datos;
-        console.log(usuario);
-        this.dataSource = new MatTableDataSource(usuario);
-        this.dataSource.paginator = this.paginator;
-      }, 
-      (error)=>{
-        console.log(error)
+    if(this.identidad.rol === 'Administrador')
+      {
+        this.mostrar();
       }
-    );
+    if(this.identidad.rol === 'Empleado')
+      {
+        this.router.navigate(["admin"]);
+      }
   }
 
   mostrar(){

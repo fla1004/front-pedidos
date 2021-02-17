@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsuarioService } from '../admin/usuarios/usuario.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  public id_usuario;
+
+  constructor(
+        private usuarioService: UsuarioService,
+        private router: Router) {
+            this.id_usuario = this.usuarioService.getIdentidad();
+         }
 
   ngOnInit(): void {
+
+    const token = localStorage.getItem('token');
+    if(token)
+    {
+      this.router.navigate(["admin"]);
+    }/**/
   }
 
 }
