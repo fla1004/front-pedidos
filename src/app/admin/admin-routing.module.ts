@@ -6,6 +6,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
+import { CatalogoComponent } from './productos/catalogo/catalogo.component';
 
 const routes: Routes = [
     {
@@ -29,6 +30,11 @@ const routes: Routes = [
           path:'productos',
           component: ProductosComponent,
         },
+        {
+          path:'catalogo',
+          component: CatalogoComponent,
+        },
+        
       ]
     }
 ];

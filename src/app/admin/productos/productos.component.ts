@@ -45,6 +45,8 @@ export class ProductosComponent implements OnInit {
         productos = datos;
         this.dataSource = new MatTableDataSource(productos);
         this.dataSource.paginator = this.paginator;
+
+        console.log(datos);
       },
       (error)=>{
         console.log(error);

@@ -1,0 +1,15 @@
+h3{
+    margin-bottom: 0;
+}
+img{
+    width: 100%;
+}
+label{
+    color:darkorange ;
+}
+.col-sm-3{
+    margin-top: 3% ;
+}
+.catalogo_productos{
+    border: 1px solid black;
+}

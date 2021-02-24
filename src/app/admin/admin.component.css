@@ -1,35 +1,6 @@
-html,body{
+html{
   height: 0;
 }
 nav{
   margin: 0;
 }
-
-@media only screen and (max-width: 360px) {
-   
-    body{
-     background-color: #8360c3;
-    }
-    nav{
-      margin: 0;
-    }
-   
-    .jumbotron{
-      margin-bottom: 5%;
-      padding-bottom: 5%;
-    }
-    .btn_nuevo{
-      width: 100%;
-      margin-left: 0;
-      margin-bottom: 3%;
-    }
-    
-    .col-sm-8{
-      margin-bottom: 5%;
-    }
-    .mat-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-   
-  }

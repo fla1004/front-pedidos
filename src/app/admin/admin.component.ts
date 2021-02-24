@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { CarritoComprasService } from './carrito-compras/carrito-compras.service';
 import { DatosUsuarioComponent } from './usuarios/datos-usuario/datos-usuario.component';
 import { UsuarioService } from './usuarios/usuario.service';
 
@@ -12,13 +13,16 @@ import { UsuarioService } from './usuarios/usuario.service';
 export class AdminComponent implements OnInit {
 
   public id_usuario: any;
+  public carrito:any;
   estado: boolean = false;
 
   constructor(private usuarioService: UsuarioService,
+              private carritoComprasService: CarritoComprasService,
               private router: Router,
               public dialog : MatDialog,) 
   {
     this.id_usuario = this.usuarioService.getIdentidad();
+   
   }
 
   ngOnInit(): void {
@@ -53,4 +57,7 @@ export class AdminComponent implements OnInit {
     });
   
   }  
+  openNav(){
+     this.carritoComprasService.openNav();
+  }
 }

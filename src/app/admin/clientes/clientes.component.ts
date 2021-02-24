@@ -16,7 +16,7 @@ let cliente: Cliente[] = [];
 })
 export class ClientesComponent implements OnInit {
 
-  displayedColumns: string[] = ['Nombre', 'CI', 'Email', 'Telefono', 'Editar', 'Eliminar'];
+  displayedColumns: string[] = ['Nombre', 'CI', 'Email', 'Telefono', 'Pedido', 'Editar', 'Eliminar'];
   dataSource = new MatTableDataSource(cliente);
  
   @ViewChild(MatPaginator)

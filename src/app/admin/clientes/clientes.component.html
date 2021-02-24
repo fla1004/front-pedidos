@@ -44,6 +44,16 @@
                   <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
                 </ng-container>
 
+                <!--Pedido-->    
+                <ng-container matColumnDef="Pedido">
+                  <th mat-header-cell *matHeaderCellDef>Pedido</th>
+                  <td mat-cell *matCellDef="let element"> 
+                      <button mat-icon-button>
+                          <mat-icon color="accent" btn btn-success>receipt</mat-icon>
+                      </button>
+                  </td>
+                </ng-container>  
+
                   <!--Editar-->    
                 <ng-container matColumnDef="Editar">
                   <th mat-header-cell *matHeaderCellDef> Editar</th>

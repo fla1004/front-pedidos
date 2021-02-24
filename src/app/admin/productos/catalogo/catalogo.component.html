@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let p of productos">
+      <div class="catalogo_productos">
+          <img [src]="urlBase + '/producto/img/' + p.imagen" alt="productos"><br>
+          <h3> 
+            <strong>{{p.nombre}}</strong>
+          </h3>
+          <label> Precio: {{p.precio_venta}}{{signoMonetario}}</label><br>
+          Añadir al carrito: 
+          <button mat-icon-button> 
+           
+          <mat-icon 
+              color="primary" 
+              btn btn-success
+              (click)="add_carrito(p)">shopping_cart</mat-icon>
+          </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let p of carrito">
+    <label >{{p.nombre}}</label>
+</div>

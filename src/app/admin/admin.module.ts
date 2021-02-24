@@ -25,6 +25,9 @@ import { CreateUsuarioDialogComponent } from './usuarios/create-usuario-dialog/c
 import { ProductosComponent } from './productos/productos.component';
 import { CreateProdutoDialogComponent } from './productos/create-produto-dialog/create-produto-dialog.component';
 import { ModificarProductoDialogComponent } from './productos/modificar-producto-dialog/modificar-producto-dialog.component';
+import { CatalogoComponent } from './productos/catalogo/catalogo.component';
+import { CarritoComprasModule } from './carrito-compras/carrito-compras.module';
+
 @NgModule({
   declarations: [
     AdminComponent, 
@@ -35,7 +38,10 @@ import { ModificarProductoDialogComponent } from './productos/modificar-producto
     DatosUsuarioComponent, 
     CambiarPasswordComponent, 
     CreateUsuarioDialogComponent, 
-    ProductosComponent, CreateProdutoDialogComponent, ModificarProductoDialogComponent,
+    ProductosComponent, 
+    CreateProdutoDialogComponent, 
+    ModificarProductoDialogComponent,
+    CatalogoComponent
 
   ],
   imports: [
@@ -43,6 +49,7 @@ import { ModificarProductoDialogComponent } from './productos/modificar-producto
     HttpClientModule,
     AdminRoutingModule,
     ReactiveFormsModule,
+    CarritoComprasModule,
 
 
     MatFormFieldModule,

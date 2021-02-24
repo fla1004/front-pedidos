@@ -2,8 +2,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-<nav class="navbar navbar-inverse">
+<div id="app">
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" routerLink="/admin">Audio Pro</a>
@@ -12,9 +12,14 @@
         <li><a routerLink="/admin/categoria">Categorias</a></li>
         <li><a routerLink="/admin/productos">Productos</a></li>
         <li><a routerLink="/admin/clientes">Clientes</a></li>
+        <li><a routerLink="/admin/catalogo">Catalogo</a></li>
         <li><a routerLink="/admin/usuarios"> {{(estado)?'':'Usuarios'}}</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a (click)="openNav()"><span class="glyphicon glyphicon-log-in">
+             </span> Salir</a>
+         </li>
         <li>
          <a (click)="nuevo()">
             <span class="glyphicon glyphicon-user"></span>
@@ -26,7 +31,11 @@
             </span> Salir</a>
         </li>
       </ul>
-    </div>
+    </div> 
   </nav>
-    
+
+  <app-carrito-compras></app-carrito-compras>
+</div>
+  
+
 <router-outlet></router-outlet>
