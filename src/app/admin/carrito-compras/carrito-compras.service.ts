@@ -68,10 +68,9 @@ export class CarritoComprasService {
         this.cart.productos.push(productos);
       }
     }
-
     this.total();
   }
-
+  //Calculando el total del pedido 
   total(){
     let subtotal =  0;
     let total = 0 ;
@@ -82,6 +81,23 @@ export class CarritoComprasService {
     this.cart.total = total;
     this.cart.subtotal = subtotal;
     console.log('calculado: ', this.cart);
+    this.setInfo();
+  }
+
+  clear(){
+    productos = [];
+    this.cart = {
+      total: 0,
+      subtotal:0,
+      productos: productos
+    };
+    console.log('Borrando informacion');
+    this.setInfo();
+
+    return this.cart;
+  }
+
+  private setInfo(){
     localStorage.setItem('cart',JSON.stringify(this.cart));
   }
 

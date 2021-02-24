@@ -18,7 +18,10 @@ export class CarritoComprasComponent implements OnInit {
     this.cart = this.carritoComprasService.initialize();
 
     console.log("Info carrito",this.cart);
+  }
 
+  clear(){
+    this.carritoComprasService.clear();
   }
   openNav(){
     this.carritoComprasService.openNav();
