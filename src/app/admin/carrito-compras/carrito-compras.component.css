@@ -10,13 +10,14 @@
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    color: white;
   }
   
   /* The navigation menu links */
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 15px;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -25,6 +26,7 @@
   /* When you mouse over the navigation links, change their color */
   .sidenav a:hover {
     color: #f1f1f1;
+    cursor: pointer;
   }
   
   /* Position and style the close button (top right corner) */
@@ -35,6 +37,19 @@
     font-size: 36px;
     margin-left: 50px;
   }
+
+  .sidenav h5{
+    margin-left: 20px;
+    margin-top: -30px;
+    margin-bottom: -20px;
+    color: white;
+  }
+
+  .sidenav .closebtn{
+    font-size: 20px;
+    right: 2px;
+  }
+
   
   #overlay{
     z-index: 1021;
@@ -49,6 +64,23 @@
     background-color: black;
     opacity: 0.4;
   
+  }
+
+  .producto{
+    background-color:#262626;
+    margin: 10px;
+    padding: 12px;
+  }
+  img{
+    width: 48px;
+    height: 48px;
+  }
+  .col-lg {
+    margin-left: 20px;
+    padding-top: 10px;
+  }
+  button.btn.btn-danger {
+    margin-top: 10px;
   }
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {

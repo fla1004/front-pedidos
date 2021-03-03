@@ -1,11 +1,16 @@
+import { coerceStringArray } from '@angular/cdk/coercion';
+import { ContentObserver } from '@angular/cdk/observers';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { from } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CarritoComprasService } from '../../carrito-compras/carrito-compras.service';
 import { ProductoService } from '../producto.service';
+import { Productos } from '../productos';
 import { CatalogoService } from './catalogo.service';
+import {DetalleVenta} from './detalleventa';
 
+let productos:Productos[] = [];
 
 @Component({
   selector: 'app-catalogo',
@@ -16,8 +21,15 @@ export class CatalogoComponent implements OnInit {
 
   public productos;
   urlBase: String;
-  carrito = [];
+  
+  cart: DetalleVenta;
+
   signoMonetario = "Bs";
+
+  detalle: DetalleVenta ={
+    productos : productos,
+    total: 0,
+  }
 
   constructor(private productoService: ProductoService,
               private catalogoService: CatalogoService,
@@ -32,9 +44,7 @@ export class CatalogoComponent implements OnInit {
     this.productoService.mostrar('').subscribe(
       (datos:any) => {
         this.productos = datos;
-        
-
-        console.log("Productos: ",this.productos)
+       
       },
       (error)=>{
         console.log(error);
@@ -42,6 +52,7 @@ export class CatalogoComponent implements OnInit {
     );
   }
   add_carrito(productos){
-    this.carritoService.manageProduct(productos); 
+    this.carritoService.manageProduct(productos);
   }
+   
 }

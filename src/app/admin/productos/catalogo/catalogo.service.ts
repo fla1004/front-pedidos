@@ -10,9 +10,9 @@ export class CatalogoService {
 
   add_carrito(productos){
      
-    let id = productos._id;
+   /* let id = productos._id;
 
-    let p = this.carrito.push(productos);
-    console.log("carrito: ", p);
+    let p = this.carrito.push(id);
+    console.log("carrito: ", p);*/
   }
 }

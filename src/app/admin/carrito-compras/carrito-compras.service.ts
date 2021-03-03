@@ -1,21 +1,27 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Productos } from '../productos/productos';
-import { CarritoCompras } from './carrito-compras';
-
-
-let productos:Productos[] = [];
+import { DetalleVenta } from './../productos/catalogo/detalleventa';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarritoComprasService {
 
-  cart: CarritoCompras = {
+  productos:Productos[] = [];
+
+  carrito = [];
+  detalle_carrito = [];
+
+  detalle: DetalleVenta ={
+    productos : this.productos,
     total: 0,
-    subtotal:0,
-    productos: productos
-  };
+  }
+
+  //Para gestionr los productos con las notificaciones cuando se realian acciones como borrar
+  public itemsVar = new Subject<DetalleVenta>();
+  public itemsVar$ = this.itemsVar.asObservable();
 
   constructor() { }
 
@@ -28,81 +34,85 @@ export class CarritoComprasService {
 
     if(storeData !== null)
     {
-      this.cart = storeData;
+      this.detalle = storeData;
     }
-    return this.cart;
+    return this.detalle;
+  }
+
+  public updateItemsInCart(newValue: DetalleVenta){
+    this.itemsVar.next(newValue);
   }
   manageProduct(productos: Productos){
+    let actionUpdateOk = false;
 
-    //Obtener cantidad de productos en el carrito
-    const productTotal = this.cart.productos.length;
-    productos.qty = 1;
-    //Comprobamos si tenemos productos
-    if(productTotal === 0){
-      console.log('Añadiendo el primer producto');  
-      this.cart.productos.push(productos);
+    const det_prod = this.detalle.productos.length;
+
+    if(det_prod === 0)
+    {
+      productos.cantidad = 1;
+      this.detalle.productos.push(productos);
     }
-    else{//Si tenemos productos
-      let actionUpdateOk = false;
-      for(let i=0; i < productTotal; i++)
+    else{
+      for(let  i=0; i<det_prod ; i++)
       {
-        //Comprobar que el producto coincide con alguno de la lista
-        if(productos._id === this.cart.productos[i]._id){
-          console.log("Producto existe");
-         // productos.qty += 1;
-
-          if(productos.qty === 0){
-            console.log('Borrar item seleccionado');
-            this.cart.productos.splice(i,1);
-            productos.qty +=1;
+        if(productos._id === this.detalle.productos[i]._id)
+        {
+          if(productos.cantidad === 0)
+          {
+            console.log("Borrando elemento");
+            this.detalle.productos.splice(i,1);
           }
-          else{ //Actualizar con la nueva informacion
-            productos.qty +=1;
-            this.cart.productos[i]=productos;
+          else{
+            this.detalle.productos[i].cantidad +=1; 
+            this.detalle.productos[i] = productos;
           }
-          actionUpdateOk = true;
-          i = productTotal;
+            actionUpdateOk = true;
+            i = det_prod;
         }
+
       }
-      if(!actionUpdateOk){
-        this.cart.productos.push(productos);
-      }
+      if(!actionUpdateOk)
+      {
+        productos.cantidad = 1;
+        this.detalle.productos.push(productos);
+      }  
     }
     this.total();
+    
   }
-  //Calculando el total del pedido 
+ 
   total(){
-    let subtotal =  0;
-    let total = 0 ;
-    this.cart.productos.map((productos: Productos)=>{
-      total += productos.qty;
-      subtotal += (productos.qty * productos.precio_venta );
-    })
-    this.cart.total = total;
-    this.cart.subtotal = subtotal;
-    console.log('calculado: ', this.cart);
+    let total = 0;
+
+    this.detalle.productos.map((productos: Productos)=>{
+      total += productos.precio_venta * productos.cantidad;
+    });
+
+    this.detalle.total = total;
     this.setInfo();
+    console.log("Total: ", this.detalle);
   }
 
   clear(){
-    productos = [];
-    this.cart = {
+    this.productos = [];
+    this.detalle = {
       total: 0,
-      subtotal:0,
-      productos: productos
-    };
-    console.log('Borrando informacion');
-    this.setInfo();
+      productos: this.productos,
+     };
 
-    return this.cart;
+    this.setInfo();
+    console.log('Borrando informacion');
+    
+    return this.detalle;
   }
 
   private setInfo(){
-    localStorage.setItem('cart',JSON.stringify(this.cart));
+    localStorage.setItem('cart',JSON.stringify(this.detalle));
+    this.updateItemsInCart(this.detalle);
   }
 
   openNav(){
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "450px";
     document.getElementById('overlay').style.display = 'block';
     document.getElementById('app').style.overflow = 'hidden';
   }

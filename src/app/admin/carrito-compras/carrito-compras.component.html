@@ -1,5 +1,39 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+
+  <h5>Carrito de compras</h5>
+  <hr>
+
+    
+  <div class="card producto" *ngIf="cart.total=== 0">
+    No hay registros
+  </div>
+  
+  <div class="card producto" *ngFor="let producto of cart.productos">
+    <div class="row">
+
+      <div class="col-lg-2"> 
+        <img [src]="urlBase + '/producto/img/' + producto.imagen" alt="producto">    
+        <br>
+        <button (click)="clearItem(producto)"
+                class="btn btn-danger">X</button>
+      </div>
+
+      <div class="col-lg-3">
+        {{producto.nombre}}
+      </div>
+
+      <div class="col-lg-2">
+       {{producto.precio_venta}} Bs
+      </div>
+
+      <div class="col-lg-2"> 
+        cantidad: {{producto.cantidad}}
+       </div>
+
+    </div>
+  </div>
+
   <a (click)="clear()">Borrar</a>
 
 </div>
