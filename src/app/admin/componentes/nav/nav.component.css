@@ -1,0 +1,19 @@
+.btn-primary {
+    color: gray;
+    background-color: gray;
+    border-color: gray;
+}
+a.nav-link {
+    font-size: large;
+    color: white;
+}
+
+i,label{
+    color: white;
+}
+label{
+    margin-right: 5px;
+}
+a:hover{
+    background-color:darkslategray;
+}

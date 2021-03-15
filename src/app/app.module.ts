@@ -17,12 +17,26 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatTableModule} from '@angular/material/table';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { FooterComponent } from './inicio/footer/footer.component';
+import { HeaderComponent } from './inicio/header/header.component';​
+import { PortadaComponent } from './inicio/portada/portada.component';
+import { ServiciosComponent } from './inicio/servicios/servicios.component';
+import { NosotrosComponent } from './inicio/nosotros/nosotros.component';
+import { ContactenosComponent } from './inicio/contactenos/contactenos.component';
+import { TodoComponent } from './inicio/todo/todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
+    HeaderComponent,
+    PortadaComponent,
+    ServiciosComponent,
+    NosotrosComponent,
+    ContactenosComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +54,8 @@ import { MatSliderModule } from '@angular/material/slider';
 
     MatCardModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

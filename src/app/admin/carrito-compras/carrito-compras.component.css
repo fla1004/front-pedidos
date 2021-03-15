@@ -63,9 +63,7 @@
     right: 0;
     background-color: black;
     opacity: 0.4;
-  
   }
-
   .producto{
     background-color:#262626;
     margin: 10px;
@@ -81,7 +79,22 @@
   }
   button.btn.btn-danger {
     margin-top: 10px;
+    border-radius: 50%;
   }
+  .precio{
+    color:cyan;
+  }
+  .precio-total{
+    color:crimson;
+    float: right;
+    margin-right: 50px;
+  }
+  .cantidad{
+    border: none;
+    border-radius: 50%;
+    background-color: darkslategrey;
+  }
+  
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}

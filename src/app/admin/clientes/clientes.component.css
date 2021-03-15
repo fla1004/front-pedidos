@@ -2,13 +2,6 @@ table{
     width: 100%;
 }
 
-body{
-    background: #8360c3; 
-    background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  
-    background: linear-gradient(to right, #2ebf91, #8360c3); 
-    height: 94vh;
-  }
-
 .btn_nuevo{
     margin-left: 50px;
     margin-right: 10px;
@@ -20,10 +13,9 @@ body{
     padding-top: 1%;
     width: 80%;
 }
-
 .jumbotron{
-    margin-top: 2%;
-    padding-top: 1%;
+    margin-top: 10px;
+    padding-top: 0;
 }
 @media only screen and (max-width: 360px) {
     .btn_nuevo{
@@ -35,6 +27,6 @@ body{
     }
 
     table{
-        width: 50%;
+        width: 30%
     }
 }

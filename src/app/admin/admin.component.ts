@@ -12,18 +12,16 @@ import { UsuarioService } from './usuarios/usuario.service';
 })
 export class AdminComponent implements OnInit {
 
+  toggledValue = true;
+
   public id_usuario: any;
   public carrito:any;
   estado: boolean = false;
 
-  constructor(private usuarioService: UsuarioService,
-              private carritoComprasService: CarritoComprasService,
+  constructor(private carritoComprasService: CarritoComprasService,
               private router: Router,
               public dialog : MatDialog,) 
-  {
-    this.id_usuario = this.usuarioService.getIdentidad();
-   
-  }
+  {}
 
   ngOnInit(): void {
     const tok = localStorage.getItem("token");
@@ -44,20 +42,11 @@ export class AdminComponent implements OnInit {
     }   
   }
 
-  logout(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('usuario');
-
-    this.router.navigate([""]);
-  }
-  nuevo(){
-    
-    this.dialog.open(DatosUsuarioComponent, {
-        width: '400px',
-    });
-  
-  }  
   openNav(){
      this.carritoComprasService.openNav();
+  }
+
+  toggled($event){
+    this.toggledValue = $event;
   }
 }

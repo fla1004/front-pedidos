@@ -1,91 +1,83 @@
+
+  <div class="jumbotron">
+
+    <button mat-raised-button class="btn btn-success btn_nuevo" (click)="nuevo()">
+          <i class="fas fa-plus"></i>
+      </button>
+
+    <mat-form-field>
+      <mat-label>Busqueda:</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo Fulano" #input>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <div class="row">
+        <div class="col-sm-8" >
+            <!-- Nombre -->
+            <ng-container matColumnDef="Nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombre}} {{element.apellidos}} </td>
+            </ng-container>
+          
+            <!-- CI -->
+            <ng-container matColumnDef="CI">
+              <th mat-header-cell *matHeaderCellDef> CI </th>
+              <td mat-cell *matCellDef="let element"> {{element.ci}} </td>
+            </ng-container>
+          
+            <!-- Email -->
+            <ng-container matColumnDef="Email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+          
+            <!-- Telefono -->
+            <ng-container matColumnDef="Telefono">
+              <th mat-header-cell *matHeaderCellDef> Telefono </th>
+              <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+            </ng-container>
+
+            <!--Pedido-->    
+            <ng-container matColumnDef="Pedido">
+              <th mat-header-cell *matHeaderCellDef>Pedido</th>
+              <td mat-cell *matCellDef="let element"> 
+                  <button mat-icon-button>
+                      <mat-icon color="accent" btn btn-success>receipt</mat-icon>
+                  </button>
+              </td>
+            </ng-container>  
+
+              <!--Editar-->    
+            <ng-container matColumnDef="Editar">
+              <th mat-header-cell *matHeaderCellDef> Editar</th>
+              <td mat-cell *matCellDef="let element"> 
+                  <button mat-icon-button>
+                      <mat-icon color="primary" (click)="nuevo(element)"  btn btn-success>edit</mat-icon>
+                  </button>
+              </td>
+            </ng-container>  
+
+            <!--Eliminar-->
+            <ng-container matColumnDef="Eliminar">
+                <th mat-header-cell *matHeaderCellDef> Eliminar</th>
+                <td mat-cell *matCellDef="let element"> 
+                    <button mat-icon-button>
+                        <mat-icon color="warn" (click)="eliminar(element._id)" >delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>  
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="6">No existen registro "{{input.value}}"</td>
+            </tr>
+          </div>
+        </div>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[6, 25, 50]" showFirstLastButtons></mat-paginator>
+
+  </div>
  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-
-  <body>
-    <div class="container">
-      <div class="jumbotron">
-
-        <button mat-raised-button class="btn btn-success btn_nuevo" (click)="nuevo()">
-              <i class="fas fa-plus"></i>
-          </button>
-
-        <mat-form-field>
-          <mat-label>Busqueda:</mat-label>
-          <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo Fulano" #input>
-        </mat-form-field>
-
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-          <div class="row">
-            <div class="col-sm-8" >
-                <!-- Nombre -->
-                <ng-container matColumnDef="Nombre">
-                  <th mat-header-cell *matHeaderCellDef> Nombre </th>
-                  <td mat-cell *matCellDef="let element"> {{element.nombre}} {{element.apellidos}} </td>
-                </ng-container>
-              
-                <!-- CI -->
-                <ng-container matColumnDef="CI">
-                  <th mat-header-cell *matHeaderCellDef> CI </th>
-                  <td mat-cell *matCellDef="let element"> {{element.ci}} </td>
-                </ng-container>
-              
-                <!-- Email -->
-                <ng-container matColumnDef="Email">
-                  <th mat-header-cell *matHeaderCellDef> Email </th>
-                  <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-                </ng-container>
-              
-                <!-- Telefono -->
-                <ng-container matColumnDef="Telefono">
-                  <th mat-header-cell *matHeaderCellDef> Telefono </th>
-                  <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
-                </ng-container>
-
-                <!--Pedido-->    
-                <ng-container matColumnDef="Pedido">
-                  <th mat-header-cell *matHeaderCellDef>Pedido</th>
-                  <td mat-cell *matCellDef="let element"> 
-                      <button mat-icon-button>
-                          <mat-icon color="accent" btn btn-success>receipt</mat-icon>
-                      </button>
-                  </td>
-                </ng-container>  
-
-                  <!--Editar-->    
-                <ng-container matColumnDef="Editar">
-                  <th mat-header-cell *matHeaderCellDef> Editar</th>
-                  <td mat-cell *matCellDef="let element"> 
-                      <button mat-icon-button>
-                          <mat-icon color="primary" (click)="nuevo(element)"  btn btn-success>edit</mat-icon>
-                      </button>
-                  </td>
-                </ng-container>  
-
-                <!--Eliminar-->
-                <ng-container matColumnDef="Eliminar">
-                    <th mat-header-cell *matHeaderCellDef> Eliminar</th>
-                    <td mat-cell *matCellDef="let element"> 
-                        <button mat-icon-button>
-                            <mat-icon color="warn" (click)="eliminar(element._id)" >delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>  
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-                <tr class="mat-row" *matNoDataRow>
-                  <td class="mat-cell" colspan="6">No existen registro "{{input.value}}"</td>
-                </tr>
-              </div>
-            </div>
-        </table>
-      
-        <mat-paginator [pageSizeOptions]="[6, 25, 50]" showFirstLastButtons></mat-paginator>
-
-      </div>
-    </div>
-  </body>

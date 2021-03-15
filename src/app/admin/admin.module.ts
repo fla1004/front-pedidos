@@ -27,6 +27,9 @@ import { CreateProdutoDialogComponent } from './productos/create-produto-dialog/
 import { ModificarProductoDialogComponent } from './productos/modificar-producto-dialog/modificar-producto-dialog.component';
 import { CatalogoComponent } from './productos/catalogo/catalogo.component';
 import { CarritoComprasModule } from './carrito-compras/carrito-compras.module';
+import { HeaderComponent } from './componentes/header/header.component';
+import { NavComponent } from './componentes/nav/nav.component';
+import { VentasComponent } from './ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -41,8 +44,10 @@ import { CarritoComprasModule } from './carrito-compras/carrito-compras.module';
     ProductosComponent, 
     CreateProdutoDialogComponent, 
     ModificarProductoDialogComponent,
-    CatalogoComponent
-
+    CatalogoComponent,
+    HeaderComponent,
+    NavComponent,
+    VentasComponent,
   ],
   imports: [
     CommonModule,
@@ -65,6 +70,7 @@ import { CarritoComprasModule } from './carrito-compras/carrito-compras.module';
     MatDialogModule,
 
     
-  ]
+  ],
+  exports:[]
 })
 export class AdminModule { }

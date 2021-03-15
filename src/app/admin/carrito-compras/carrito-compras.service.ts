@@ -2,7 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Productos } from '../productos/productos';
-import { DetalleVenta } from './../productos/catalogo/detalleventa';
+import { DetalleVenta } from '../productos/catalogo/detalleventa';
 
 @Injectable({
   providedIn: 'root'

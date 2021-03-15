@@ -1,0 +1,31 @@
+.navbar {
+    margin-bottom: 0;
+    font-size: large;
+}
+.navbar-brand {
+   
+     padding-top: 15px; 
+     font-size: large;
+    
+}
+.nav-r {
+    top: 10px;
+    list-style: none;
+    justify-content: end;
+    align-items: right;
+    text-align: right;
+    width: 1000px;
+}
+
+@media (max-width: 500px){
+    .navbar{
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 800px){
+    .navbar{
+        width: 100%;
+    }
+}

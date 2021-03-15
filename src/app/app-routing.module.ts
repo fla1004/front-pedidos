@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
+import { TodoComponent } from './inicio/todo/todo.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
@@ -11,8 +12,12 @@ const routes: Routes = [
 
     children:[
       {
-          path: 'login',
-          component: LoginComponent
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'todo',
+        component: TodoComponent
       }
     ]
   },

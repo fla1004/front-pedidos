@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
@@ -7,6 +7,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ProductosComponent } from './productos/productos.component';
 import { CatalogoComponent } from './productos/catalogo/catalogo.component';
+import { VentasComponent } from './ventas/ventas.component';
 
 const routes: Routes = [
     {
@@ -34,6 +35,10 @@ const routes: Routes = [
           path:'catalogo',
           component: CatalogoComponent,
         },
+        {
+          path:'ventas',
+          component: VentasComponent,
+        }
         
       ]
     }

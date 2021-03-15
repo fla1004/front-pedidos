@@ -11,28 +11,38 @@
   
   <div class="card producto" *ngFor="let producto of cart.productos">
     <div class="row">
-
       <div class="col-lg-2"> 
         <img [src]="urlBase + '/producto/img/' + producto.imagen" alt="producto">    
         <br>
+       
+      </div>
+
+      <div class="col-lg-5">
+        {{producto.nombre}}  <br>
+        x{{producto.cantidad}} 
+       <!--<button class="cantidad">-</button> <button class="cantidad">+</button>--> 
+      </div>
+
+      <div class="col-lg-3" style=" margin: 0; padding: 0; text-align: left;">
+       <p class="precio">{{producto.precio_venta}} Bs</p>
+      </div>
+
+      <div class="col-lg-1">
         <button (click)="clearItem(producto)"
-                class="btn btn-danger">X</button>
+        class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
       </div>
-
-      <div class="col-lg-3">
-        {{producto.nombre}}
-      </div>
-
-      <div class="col-lg-2">
-       {{producto.precio_venta}} Bs
-      </div>
-
-      <div class="col-lg-2"> 
-        cantidad: {{producto.cantidad}}
-       </div>
 
     </div>
   </div>
+
+  <div class="card " *ngIf="cart.total> 0" >
+    <div class="col-lg">
+      Total a pagar:<span class="precio-total"> {{cart.total}} Bs</span>
+      
+    </div>
+  </div>
+
+  <hr>
 
   <a (click)="clear()">Borrar</a>
 

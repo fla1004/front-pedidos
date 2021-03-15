@@ -1,8 +1,4 @@
-import { coerceStringArray } from '@angular/cdk/coercion';
-import { ContentObserver } from '@angular/cdk/observers';
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CarritoComprasService } from '../../carrito-compras/carrito-compras.service';
 import { ProductoService } from '../producto.service';

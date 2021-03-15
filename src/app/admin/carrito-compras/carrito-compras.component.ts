@@ -35,6 +35,8 @@ export class CarritoComprasComponent implements OnInit {
   clear(){
     this.carritoComprasService.clear();
 
+
+    
   }
   clearItem(producto: Productos){
     producto.cantidad = 0;
